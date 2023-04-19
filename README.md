@@ -1,7 +1,9 @@
 # dodge-the-creeps
 
 ## Screenshots
+# Title Screen
 ![Title Screen](screenshots/title_screen.png)
+# Gameplay
 ![Gameplay](screenshots/gameplay.png)
 
 ## Description
