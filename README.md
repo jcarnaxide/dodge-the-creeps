@@ -1,5 +1,9 @@
 # dodge-the-creeps
 
+## Screenshots
+![Title Screen](screenshots/title_screen.png)
+![Gameplay](screenshots/gameplay.png)
+
 ## Description
 This repo is capturing my efforts in developing my first Godot application.
 I plan to keep track of the steps that I take, and the things that I learn along the way.

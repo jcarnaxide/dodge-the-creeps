@@ -1,2 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Ignore Some generated Godot files
+*.apk
+*.apk.idsig
+screenshots/*.import
