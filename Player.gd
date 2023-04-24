@@ -3,6 +3,17 @@ signal hit
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
+var is_dragging = false # Is the user currently touching/holding the screen
+var touch_position = Vector2.ZERO # Where is the users finger
+
+func _input(event):
+	# Handle Touchscreen input for mobile use
+	if event is InputEventScreenTouch:
+		is_dragging = event.is_pressed()
+		if is_dragging:
+			touch_position = event.position
+	if event is InputEventScreenDrag:
+		touch_position = event.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +31,8 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+	if is_dragging:
+		velocity = Vector2(touch_position.x - position.x, touch_position.y - position.y)
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -39,6 +52,7 @@ func _process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
+
 
 func _on_body_entered(body):
 	hide() # Player disappears after being hit.
